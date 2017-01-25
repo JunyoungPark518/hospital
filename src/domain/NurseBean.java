@@ -1,7 +1,7 @@
 package domain;
 
 public class NurseBean extends MemberBean {
-	private String majorJob, position;
+	private String majorJob, position, profileImg;
 	
 	public String getMajorJob() {
 		return majorJob;
@@ -19,6 +19,14 @@ public class NurseBean extends MemberBean {
 		this.position = position;
 	}
 	
+	public String getProfileImg() {
+		return profileImg;
+	}
+
+	public void setProfileImg(String profileImg) {
+		this.profileImg = profileImg;
+	}
+
 	@Override
 	public String toString() {
 		return String.format(

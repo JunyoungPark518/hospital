@@ -19,7 +19,7 @@ public class Controller {
 				String docInfo = input(Hospital.DOC_SPEC);
 				String[] docInfoArr = docInfo.split(",");
 				doc = new DoctorBean();
-				doc.setUid(Integer.parseInt((docInfoArr[0])));
+				doc.setUid(docInfoArr[0]);
 				doc.setMajorTreat(docInfoArr[1]);
 				doc.setName(docInfoArr[2]);
 				doc.setSsn(docInfoArr[3]);
@@ -32,7 +32,7 @@ public class Controller {
 				String nurInfo = input(Hospital.NUR_SPEC);
 				String[] nurInfoArr = nurInfo.split(",");
 				nur = new NurseBean();
-				nur.setUid(Integer.parseInt(nurInfoArr[0]));
+				nur.setUid(nurInfoArr[0]);
 				nur.setMajorJob(nurInfoArr[1]);
 				nur.setName(nurInfoArr[2]);
 				nur.setGen(bmi.evalGender(nurInfoArr[3]));
@@ -46,7 +46,7 @@ public class Controller {
 				String[] patInfoArr = patInfo.split(",");
 				pat = new PatientBean();
 				// 아이디, 이름
-				pat.setUid(Integer.parseInt(patInfoArr[0]));
+				pat.setUid(patInfoArr[0]);
 				// 의사 및 간호사를 입력하지 않았다면 NullPointerException이 출력. 
 				pat.setNurId(nur.getUid());
 				pat.setDocId(doc.getUid());
@@ -61,18 +61,9 @@ public class Controller {
 				break;
 			case 4: // BMI 체크
 				// 키, 몸무게
-				int id = 0;
-				while(true) {
-					id = inputInt("환자 아이디 입력");
-					if(id == pat.getUid()) {
-						pat.setHeight(inputDouble("몸무게?") / 100);
-						pat.setWeight(inputDouble("키?"));
-						show(String.format("%s은 '%s'입니다.\n", pat.getName(), bmi.getBmi(pat)));
-						break;
-					} else {
-						show("아이디를 잘못 입력하셨습니다.");
-					}
-				}
+				pat.setHeight(input("몸무게?"));
+				pat.setWeight(input("키?"));
+				show(String.format("%s은 '%s'입니다.\n", pat.getName(), bmi.getBmi(pat)));
 				break;
 			case 0:
 				show("프로그램을 종료합니다.");
@@ -94,9 +85,5 @@ public class Controller {
 	
 	private int inputInt(String str) {
 		return Integer.parseInt(JOptionPane.showInputDialog(str));
-	}
-	
-	private double inputDouble(String str) {
-		return Double.parseDouble(JOptionPane.showInputDialog(str));
 	}
 }

@@ -6,7 +6,8 @@ import service.HospitalService;
 public class HospitalServiceImpl implements HospitalService {
 	@Override
 	public String getBmi(PatientBean pat) {
-		double bmi = pat.getWeight() / (pat.getHeight() * pat.getHeight());
+		double weight = Double.parseDouble(pat.getWeight()), height = Double.parseDouble(pat.getHeight()) / 100;
+		double bmi = weight / (height * height);
 		String result = "";
 		if(bmi>30) {
 			result = "고도비만";

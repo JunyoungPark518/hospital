@@ -1,7 +1,7 @@
 package domain;
 
 public class DoctorBean extends MemberBean {
-	private String majorTreat, position;
+	private String majorTreat, position, profileImg;
 	
 	public String getMajorTreat() {
 		return majorTreat;
@@ -19,6 +19,14 @@ public class DoctorBean extends MemberBean {
 		this.position = position;
 	}
 	
+	public String getProfileImg() {
+		return profileImg;
+	}
+
+	public void setProfileImg(String profileImg) {
+		this.profileImg = profileImg;
+	}
+
 	@Override
 	public String toString() {
 		return String.format(

@@ -1,8 +1,7 @@
 package domain;
 
 public class MemberBean {
-	protected String name, gen, ssn, addr, phone, email;
-	protected int uid;
+	protected String uid, name, gen, ssn, addr, phone, email;
 	public String getName() {
 		return name;
 	}
@@ -39,10 +38,10 @@ public class MemberBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getUid() {
+	public String getUid() {
 		return uid;
 	}
-	public void setUid(int uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 }
