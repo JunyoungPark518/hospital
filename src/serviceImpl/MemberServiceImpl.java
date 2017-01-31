@@ -1,9 +1,9 @@
 package serviceImpl;
 
 import domain.PatientBean;
-import service.HospitalService;
+import service.MemberService;
 
-public class HospitalServiceImpl implements HospitalService {
+public class MemberServiceImpl implements MemberService {
 	@Override
 	public String getBmi(PatientBean pat) {
 		double weight = Double.parseDouble(pat.getWeight()), height = Double.parseDouble(pat.getHeight()) / 100;

@@ -3,13 +3,13 @@ package controller;
 import javax.swing.JOptionPane;
 
 import domain.*;
-import serviceImpl.HospitalServiceImpl;
+import serviceImpl.MemberServiceImpl;
 import constants.Hospital;
 
 public class Controller {
 	
 	public void start() {
-		HospitalServiceImpl bmi = new HospitalServiceImpl();
+		MemberServiceImpl bmi = new MemberServiceImpl();
 		DoctorBean doc = null;
 		NurseBean nur = null;
 		PatientBean pat = null;
