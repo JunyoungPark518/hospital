@@ -104,6 +104,7 @@ public class AdminController {
 					case EXIT: break;
 					default: break;
 				}
+				service.change(member);
 				break;
 			case DELETE:
 				jobselect = (Butt)JOptionPane.showInputDialog(null, "ADMIN PAGE", "누구의 정보를 제거할까요?", JOptionPane.QUESTION_MESSAGE, null, jobs, jobs[0]);
