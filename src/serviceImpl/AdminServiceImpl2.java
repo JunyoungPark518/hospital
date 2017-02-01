@@ -5,13 +5,13 @@ import domain.MemberBean;
 import domain.NurseBean;
 import service.AdminService;
 
-public class AdminServiceImpl implements AdminService {
+public class AdminServiceImpl2 implements AdminService {
 	private NurseBean[] nurList;
 	private DoctorBean[] docList;
 	private int nurcount;
 	private int doccount;
 	
-	public AdminServiceImpl() {
+	public AdminServiceImpl2() {
 		nurcount = doccount = 0;
 		nurList = new NurseBean[nurcount];
 		docList = new DoctorBean[doccount];
@@ -157,18 +157,20 @@ public class AdminServiceImpl implements AdminService {
 			for(int i=0; i<nurcount; i++) {
 				if(member.getUid().equals(nurList[i].getUid())) {
 					nurList[i] = nurList[nurcount];
-					nurList[nurcount--] = null;
+					nurList[nurcount] = null;
 					break;
 				}
 			}
+			nurcount--;
 		} else if (member instanceof DoctorBean) {
 			for(int i=0; i<doccount; i++) {
 				if(member.getUid().equals(docList[i].getUid())) {
 					docList[i] = docList[doccount];
-					docList[doccount--] = null;
+					docList[doccount] = null;
 					break;
 				}
 			}
+			doccount--;
 		}
 	}
 
@@ -180,14 +182,14 @@ public class AdminServiceImpl implements AdminService {
 				if(member.getUid().equals(nurList[i].getUid())) {
 					exist = true;
 					break;
-				} 
+				}
 			}
 		} else if(member instanceof DoctorBean) {
 			for(int i=0; i<doccount; i++) {
 				if(member.getUid().equals(docList[i].getUid())) {
 					exist = true;
 					break;
-				} 
+				}
 			}
 		}
 		return exist;

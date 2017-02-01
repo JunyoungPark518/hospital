@@ -44,4 +44,8 @@ public class MemberBean {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
+	@Override
+	public String toString() {
+		return String.format("ID:%s 이름:%s 성별:%s 주민번호:%s \n주소:%s 전화번호:%s 이메일:%s", uid, name, gen, ssn, addr, phone, email);
+	}
 }

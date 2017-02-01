@@ -3,5 +3,6 @@ package enums;
 public enum Butt {
 	EXIT, ADMIN, DOC, NUR, PAT, 
 	REGISTER, FIND_BY_ID, FIND_BY_NAME, LIST, RANK, UPDATE, DELETE,
+	BMI, 
 	NAME, GEN, SSN, ADDR, PHONE, EMAIL
 }
