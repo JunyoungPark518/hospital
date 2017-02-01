@@ -6,36 +6,35 @@ import domain.NurseBean;
 import service.AdminService;
 
 public class AdminServiceImpl implements AdminService {
-	DoctorBean[] docList;
-	NurseBean[] nurList;
-	private int doccount;
+	private NurseBean[] nurList;
+	private DoctorBean[] docList;
 	private int nurcount;
+	private int doccount;
+	
 	public AdminServiceImpl() {
-		doccount = nurcount = 0;
-		docList = new DoctorBean[doccount];
+		nurcount = doccount = 0;
 		nurList = new NurseBean[nurcount];
+		docList = new DoctorBean[doccount];
 	}
 	
 	@Override
 	public void register(MemberBean member) {
 		if(member instanceof NurseBean) {
-			if(nurcount == nurList.length) {
+			NurseBean nurse = (NurseBean) member;
+			if(nurList.length == nurcount) {
 				NurseBean[] temp = new NurseBean[nurcount+10];
 				System.arraycopy(nurList, 0, temp, 0, nurcount);
 				nurList = temp;
 			}
-			nurList[doccount] = (NurseBean) member;
-			doccount++;
+			nurList[nurcount++] = nurse;
 		} else if(member instanceof DoctorBean) {
-			if(doccount == docList.length) {
+			DoctorBean doctor = (DoctorBean) member;
+			if(docList.length == doccount) {
 				DoctorBean[] temp = new DoctorBean[doccount+10];
 				System.arraycopy(docList, 0, temp, 0, doccount);
 				docList = temp;
 			}
-			docList[nurcount] = (DoctorBean) member;
-			nurcount++;
-		} else {
-			
+			docList[doccount++] = doctor;
 		}
 	}
 
